@@ -21,19 +21,15 @@ correlation-regression-spss/
 │
 └── Chapter_01_Correlation_Regression/
     ├── data/
-    │   ├── 001_Bivariate_Poultry_Data.sav
-    │   ├── 001_Bivariate_Poultry_Data.xlsx
-    │   ├── 001_Bivariate_Poultry_Data.csv
-    │   ├── 002_Partial_Correlation_Data.sav
-    │   ├── 002_Partial_Correlation_Data.xlsx
-    │   └── 002_Partial_Correlation_Data.csv
+    │   ├── 001_Bivariate_Poultry_Data.sav / .xlsx / .csv
+    │   ├── 002_Partial_Correlation_Data.sav / .xlsx / .csv
+    │   └── 003_Simple_Regression_Data.sav / .xlsx / .csv
     ├── output/
-    │   ├── 001_Pearson_Correlation_Output.spv
-    │   ├── 001_Pearson_Correlation_Output.xlsx
-    │   ├── 002_Spearman_Correlation_Output.spv
-    │   ├── 002_Spearman_Correlation_Output.xlsx
-    │   ├── 003_Partial_Correlation_Output.spv
-    │   └── 003_Partial_Correlation_Output.xlsx
+    │   ├── 001_Pearson_Correlation_Output.spv / .xlsx
+    │   ├── 002_Spearman_Correlation_Output.spv / .xlsx
+    │   ├── 003_Partial_Correlation_Output.spv / .xlsx
+    │   ├── 004_Simple_Regression_Output.spv / .xlsx
+    │   └── 005_Multiple_Regression_Output.spv / .xlsx
     ├── figures/
     │   ├── Fig_01_Navigation_Path.png
     │   ├── Fig_02_Dialog_Box_Empty.png
@@ -41,7 +37,15 @@ correlation-regression-spss/
     │   ├── Fig_04_Dialog_Box_Spearman.png
     │   ├── Fig_05_Partial_Navigation.png
     │   ├── Fig_06_Partial_Dialog_Configured.png
-    │   └── Fig_07_Partial_Options.png
+    │   ├── Fig_07_Partial_Options.png
+    │   ├── Fig_08_Scatter_Plot_Dialog.png
+    │   ├── Fig_09_Regression_Navigation.png
+    │   ├── Fig_10_Regression_Dialog.png
+    │   ├── Fig_11_Regression_Statistics.png
+    │   ├── Fig_12_Regression_Plots.png
+    │   ├── Fig_13_Multiple_Regression_Navigation.png
+    │   ├── Fig_14_Multiple_Regression_Dialog.png
+    │   └── Fig_15_Multiple_Regression_Statistics.png
     └── Assets/
         ├── QR_Corr_Reg_SPSS.svg
         └── QR_Corr_Reg_SPSS.png
@@ -51,13 +55,8 @@ correlation-regression-spss/
 
 ## 📊 Dataset Details
 
-### 001 — Bivariate Poultry Dataset
-
-| Property | Details |
-|---|---|
-| **Species** | White Leghorn Layer Hens |
-| **Sample size** | 50 birds |
-| **Analysis** | Bivariate Correlation (Pearson, Spearman, Kendall) |
+### 001 — Bivariate Correlation Dataset (n = 50)
+**Analysis:** Bivariate Correlation — Pearson, Spearman, Kendall
 
 | Variable | Label | Unit | Scale | Decimals |
 |---|---|---|---|---|
@@ -74,59 +73,57 @@ correlation-regression-spss/
 
 ---
 
-### 002 — Partial Correlation Dataset
+### 002 — Partial Correlation Dataset (n = 60)
+**Analysis:** Partial Correlation — controlling for Age of Hen  
+**Teaching purpose:** EggProdn × AlbHeight appear strongly correlated (r = 0.929) but partial r controlling for Age drops to −0.070 (non-significant) — demonstrating spurious correlation
 
-| Property | Details |
-|---|---|
-| **Species** | White Leghorn Layer Hens |
-| **Sample size** | 60 birds |
-| **Analysis** | Partial Correlation (controlling for Age) |
-| **Teaching purpose** | Demonstrates spurious correlation — EggProdn × AlbHeight appear strongly correlated (r = 0.929) but partial r after controlling for Age drops to −0.070 (non-significant) |
+| Variable | Label | Unit | Scale | Role |
+|---|---|---|---|---|
+| BirdID | Bird Identifier | — | Nominal | ID only |
+| AgeWeeks | Age of Hen | Weeks | Scale | **Control variable** |
+| EggProdn_n | Weekly Egg Production | n/week | Scale | Variable 1 |
+| AlbHeight_mm | Albumen Height (HU proxy) | mm | Scale | Variable 2 |
+| BodyWeight_g | Body Weight | g | Scale | Variable 3 |
+| FeedIntake_g | Daily Feed Intake | g/day | Scale | Variable 4 |
 
-| Variable | Label | Unit | Scale | Decimals | Role |
-|---|---|---|---|---|---|
-| BirdID | Bird Identifier | — | Nominal | — | ID only |
-| AgeWeeks | Age of Hen | Weeks | Scale | 0 | **Control variable** |
-| EggProdn_n | Weekly Egg Production | n/week | Scale | 1 | Variable 1 |
-| AlbHeight_mm | Albumen Height (HU proxy) | mm | Scale | 1 | Variable 2 |
-| BodyWeight_g | Body Weight | g | Scale | 1 | Variable 3 |
-| FeedIntake_g | Daily Feed Intake | g/day | Scale | 1 | Variable 4 |
+---
+
+### 003 — Simple and Multiple Regression Dataset (n = 60)
+**Analysis:** Simple Linear Regression + Multiple Linear Regression  
+**Simple model:** EggWeight = a + b × BodyWeight (R² = 0.788)  
+**Multiple model:** EggWeight = a + b₁ × BodyWeight + b₂ × Age (R² = 0.793)
+
+| Variable | Label | Unit | Scale | Role |
+|---|---|---|---|---|
+| BirdID | Bird Identifier | — | Nominal | ID only |
+| AgeWeeks | Age of Hen | Weeks | Scale | Independent X₂ (multiple regression) |
+| BodyWeight_g | Body Weight | g | Scale | **Independent X / X₁** |
+| EggWeight_g | Egg Weight | g | Scale | **Dependent Y** |
 
 ---
 
 ## 📥 How to Download
 
-### Single file
-Click on any file → click the **Download raw file** button (⬇ icon, top right).
+**Single file:** Click filename → **Download raw file** button (⬇ icon, top right)
 
-### All files at once
-Click the green **Code** button → **Download ZIP** → extract on your computer.
+**All files:** Click green **<> Code** button → **Download ZIP** → extract on your computer
 
 ---
 
 ## 🖥️ How to Open in SPSS 20.0
 
-**Direct open (recommended):**
 ```
 File → Open → Data → select .sav file → Open
 ```
-The `.sav` file opens directly with all variable names, labels, and decimal places already configured. After opening, go to **Variable View** and set measurement levels (Nominal / Ordinal / Scale) as shown in the Variable Key sheet of the corresponding `.xlsx` file.
-
-**From Excel:**
-```
-File → Open → Data → Files of type: Excel → select .xlsx →
-Check "Read variable names from first row" → Worksheet: Data → OK
-```
+After opening, go to **Variable View** and set measurement levels (Nominal / Ordinal / Scale) as shown in the Variable Key sheet of the corresponding `.xlsx` file.
 
 ---
 
 ## 📋 License
 
-All data files and resources in this repository are released under the  
-**Creative Commons Zero v1.0 Universal (CC0)** license —  
-free to use, share, and adapt for any purpose without restriction.
+Released under **Creative Commons Zero v1.0 Universal (CC0)** — free to use, share, and adapt.
 
-> **Note:** All datasets are simulated (dummy) data generated for teaching and demonstration purposes only. They are not derived from any real experimental study.
+> **Note:** All datasets are simulated (dummy) data generated for teaching and demonstration purposes only.
 
 ---
 
